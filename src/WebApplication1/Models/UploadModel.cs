@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Web;
-
-namespace WebApplication1.Models
+﻿namespace WebApplication1.Models
 {
-    public class UploadModel
+    public class ResponseApi
     {
-        public List<HttpPostedFileBase> Files { get; set; }
-
-        public UploadModel()
-        {
-            Files = new List<HttpPostedFileBase>();
-        }
+        public string error { get; set; }
+        public string newUuid { get; set; }
+        public bool success { get; set; }
+        public bool preventRetry { get; set; }
+        public bool reset { get; set; }
     }
 }

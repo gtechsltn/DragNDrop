@@ -100,11 +100,33 @@
                 endpoint: "@Url.Action("UploadFiles", "Home")"
             },
             deleteFile: {
-                enabled: true,
-                endpoint: "@Url.Action("UploadFiles", "Home")"
+                enabled: false
             },
             retry: {
                 enableAuto: true
+            },
+            callbacks: {
+                onValidate: function (data, buttonContainer) {
+                    console.log(`onValidate = { data: ${data}, buttonContainer: ${buttonContainer} }`);
+                },
+                onSubmit: function (id, name) {
+                    console.log(`onSubmit = { id: ${id}, name: ${name} }`);
+                },
+                onUpload: function (id, name) {
+                    console.log(`onUpload = { id: ${id}, name: ${name} }`);
+                },
+                onStatusChange: function (id, oldStatus, newStatus) {
+                    console.log(`onStatusChange = { id: ${id}, oldStatus: ${oldStatus}, newStatus: ${newStatus} }`);
+                },
+                onResume: function (id, name, chunkData, customResumeData) {
+                    console.log(`onResume = { id: ${id}, name: ${name}, chunkData: ${chunkData}, customResumeData: ${customResumeData} }`);
+                },
+                onComplete: function (id, name, responseJSON, xhr) {
+                    console.log(`onComplete = { id: ${id}, name: ${name}, responseJSON: ${responseJSON}, xhr: ${xhr} }`);
+                },
+                onAllComplete: function (succeeded, failed) {
+                    console.log(`onAllComplete = { succeeded: ${succeeded}, failed: ${failed} }`);
+                }
             }
         });
     </script>
